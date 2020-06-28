@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: serv
+spec:
+  replicas: 3
+  selector:
+    func: serv
+  template:
+    metadata:
+      labels:
+        func: serv
+    spec:
+      containers:
+      - name: c1
+        stdin: true
+        tty: true
+        image: 192.168.226.3:10000/serv:1.0
+        command: ["/main"]

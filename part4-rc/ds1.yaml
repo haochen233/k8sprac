@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds1
+spec:
+  selector:
+    matchExpressions:
+    - key: srctype
+      values: 
+      - ds
+      operator: In
+  template:
+    metadata:
+       labels:
+         srctype: ds
+    spec:
+      containers:
+      - name: c1
+        image: 192.168.226.3:10000/hh:v0.1
+        stdin: true
+        tty: true

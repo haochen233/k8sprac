@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: head-svc
+spec:
+  clusterIP: None
+  selector:
+    func: serv
+  ports:
+  - port: 8000
+    targetPort: 9190

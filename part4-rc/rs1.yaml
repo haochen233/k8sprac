@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs1
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+    - key: owner
+      values: 
+      - hh
+      - zch
+      operator: In
+  template:
+    metadata:
+       labels:
+         owner: hh
+    spec:
+      containers:
+      - name: c1
+        image: 192.168.226.3:10000/hh:v0.1
+        stdin: true
+        tty: true

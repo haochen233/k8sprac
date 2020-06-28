@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: p7-1
+spec:
+  volumes:
+  - name: my-cm1
+    configMap: 
+      name: cm4
+  - name: my-sct1
+    secret:
+      secretName: secret1
+  containers:
+  - image: 192.168.226.3:10000/serv:1.0
+    name: p7-1-1
+    stdin: true
+    tty: true
+    env:
+    - name: START
+      valueFrom: 
+        configMapKeyRef: 
+          name: cm1
+          key: START
+  - image: 192.168.226.3:10000/serv:1.0
+    name: p7-1-2
+    stdin: true
+    tty: true
+    env:
+    - name: MYENV
+      valueFrom: 
+        configMapKeyRef: 
+          name: cm1
+          key: END
+          optional: true
+  - image: 192.168.226.3:10000/serv:1.0
+    name: p7-1-3
+    stdin: true
+    tty: true
+    env:
+    - name: START
+      valueFrom: 
+        configMapKeyRef: 
+          name: cm0
+          key: START
+  - image: 192.168.226.3:10000/serv:1.0
+    name: p7-1-4
+    stdin: true
+    tty: true
+    envFrom:
+    - prefix: ENV_FROM
+      configMapRef: 
+        name: cm4
+  - image: 192.168.226.3:10000/serv:1.0
+    name: p7-1-5
+    stdin: true
+    tty: true
+    volumeMounts:
+    - name: my-cm1
+      mountPath: /mnt/my-cm1
+      readOnly: true
+  - image: 192.168.226.3:10000/serv:1.0
+    name: p7-1-6
+    stdin: true
+    tty: true
+    volumeMounts:
+    - name: my-cm1
+      mountPath: /mnt/my-cm1
+      subPath: 2.json
+      readOnly: true
+#此容器将secret卷挂载到pod
+#将secret的所有条目暴露为环境变量envFrom
+#将secret的条目值作为环境变量的值valueFrom
+  - image: 192.168.226.3:10000/serv:1.0
+    name: p7-1-7
+    stdin: true
+    tty: true
+    volumeMounts:
+    - name: my-sct1
+      mountPath: /mnt/my-sct1
+      readOnly: true
+    env: 
+    - name: CERT
+      valueFrom:
+        secretKeyRef: 
+          name: secret1
+          key: 1.cert
+    envFrom:
+    - prefix: ENV_FROM_
+      secretRef:
+        name: secret1

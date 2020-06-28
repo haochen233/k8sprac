@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cj1
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            srctype: cronjob
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - image: 192.168.226.3:10000/hh:v0.1
+            name: c1
+            command: ["ash","-c","sleep 8;echo helloworld"]
+            stdin: true
+            tty: true
