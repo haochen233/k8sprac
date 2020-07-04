@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sts1
+spec:
+  selector:
+    matchExpressions:
+    - key: srctype
+      operator: In
+      values:
+      - sts
+  replicas: 2
+  serviceName: svc-sts1
+  template: 
+    metadata: 
+      labels: 
+        srctype: sts
+    spec:
+      containers:
+      - name: c1
+        image: 192.168.226.3:10000/serv:1.0
+        stdin: true
+        tty: true
+        volumeMounts:
+        - name: pvc-sts
+          mountPath: /mnt/sts
+  volumeClaimTemplates:
+  - metadata:
+      name: pvc-sts
+    spec:
+      selector: 
+        matchExpressions:
+        - key: srctype
+          values:
+          - sts
+          operator: In
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 50Mi
+      

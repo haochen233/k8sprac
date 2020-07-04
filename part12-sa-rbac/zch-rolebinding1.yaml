@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: zch-rolebinding1
+subjects:
+- kind: ServiceAccount
+  name: zch
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  name: zch-role1
+  kind: Role

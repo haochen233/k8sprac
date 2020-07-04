@@ -1,0 +1,385 @@
+{
+  "kind": "JobList",
+  "apiVersion": "batch/v1",
+  "metadata": {
+    "selfLink": "/apis/batch/v1/jobs",
+    "resourceVersion": "449294"
+  },
+  "items": [
+    {
+      "metadata": {
+        "name": "cj1-1593360600",
+        "namespace": "default",
+        "selfLink": "/apis/batch/v1/namespaces/default/jobs/cj1-1593360600",
+        "uid": "2daf72d5-47ec-4f79-80e9-a9ba53d8b2fd",
+        "resourceVersion": "448813",
+        "creationTimestamp": "2020-06-28T16:10:05Z",
+        "labels": {
+          "controller-uid": "2daf72d5-47ec-4f79-80e9-a9ba53d8b2fd",
+          "job-name": "cj1-1593360600",
+          "srctype": "cronjob"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1beta1",
+            "kind": "CronJob",
+            "name": "cj1",
+            "uid": "569437dd-a94f-44a6-956b-a02a788391ef",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2020-06-28T16:10:14Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {"f:metadata":{"f:labels":{".":{},"f:srctype":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"569437dd-a94f-44a6-956b-a02a788391ef\"}":{".":{},"f:apiVersion":{},"f:blockOwnerDeletion":{},"f:controller":{},"f:kind":{},"f:name":{},"f:uid":{}}}},"f:spec":{"f:backoffLimit":{},"f:completions":{},"f:parallelism":{},"f:template":{"f:metadata":{"f:labels":{".":{},"f:srctype":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"c1\"}":{".":{},"f:command":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:stdin":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{},"f:tty":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}},"f:status":{"f:completionTime":{},"f:conditions":{".":{},"k:{\"type\":\"Complete\"}":{".":{},"f:lastProbeTime":{},"f:lastTransitionTime":{},"f:status":{},"f:type":{}}},"f:startTime":{},"f:succeeded":{}}}
+          }
+        ]
+      },
+      "spec": {
+        "parallelism": 1,
+        "completions": 1,
+        "backoffLimit": 6,
+        "selector": {
+          "matchLabels": {
+            "controller-uid": "2daf72d5-47ec-4f79-80e9-a9ba53d8b2fd"
+          }
+        },
+        "template": {
+          "metadata": {
+            "creationTimestamp": null,
+            "labels": {
+              "controller-uid": "2daf72d5-47ec-4f79-80e9-a9ba53d8b2fd",
+              "job-name": "cj1-1593360600",
+              "srctype": "cronjob"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "c1",
+                "image": "192.168.226.3:10000/hh:v0.1",
+                "command": [
+                  "ash",
+                  "-c",
+                  "sleep 8;echo helloworld"
+                ],
+                "resources": {
+                  
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent",
+                "stdin": true,
+                "tty": true
+              }
+            ],
+            "restartPolicy": "OnFailure",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {
+              
+            },
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "type": "Complete",
+            "status": "True",
+            "lastProbeTime": "2020-06-28T16:10:14Z",
+            "lastTransitionTime": "2020-06-28T16:10:14Z"
+          }
+        ],
+        "startTime": "2020-06-28T16:10:05Z",
+        "completionTime": "2020-06-28T16:10:14Z",
+        "succeeded": 1
+      }
+    },
+    {
+      "metadata": {
+        "name": "cj1-1593360660",
+        "namespace": "default",
+        "selfLink": "/apis/batch/v1/namespaces/default/jobs/cj1-1593360660",
+        "uid": "048ef8de-ddf0-4715-bbe4-6b4780c6a118",
+        "resourceVersion": "448978",
+        "creationTimestamp": "2020-06-28T16:11:05Z",
+        "labels": {
+          "controller-uid": "048ef8de-ddf0-4715-bbe4-6b4780c6a118",
+          "job-name": "cj1-1593360660",
+          "srctype": "cronjob"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1beta1",
+            "kind": "CronJob",
+            "name": "cj1",
+            "uid": "569437dd-a94f-44a6-956b-a02a788391ef",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2020-06-28T16:11:15Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {"f:metadata":{"f:labels":{".":{},"f:srctype":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"569437dd-a94f-44a6-956b-a02a788391ef\"}":{".":{},"f:apiVersion":{},"f:blockOwnerDeletion":{},"f:controller":{},"f:kind":{},"f:name":{},"f:uid":{}}}},"f:spec":{"f:backoffLimit":{},"f:completions":{},"f:parallelism":{},"f:template":{"f:metadata":{"f:labels":{".":{},"f:srctype":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"c1\"}":{".":{},"f:command":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:stdin":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{},"f:tty":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}},"f:status":{"f:completionTime":{},"f:conditions":{".":{},"k:{\"type\":\"Complete\"}":{".":{},"f:lastProbeTime":{},"f:lastTransitionTime":{},"f:status":{},"f:type":{}}},"f:startTime":{},"f:succeeded":{}}}
+          }
+        ]
+      },
+      "spec": {
+        "parallelism": 1,
+        "completions": 1,
+        "backoffLimit": 6,
+        "selector": {
+          "matchLabels": {
+            "controller-uid": "048ef8de-ddf0-4715-bbe4-6b4780c6a118"
+          }
+        },
+        "template": {
+          "metadata": {
+            "creationTimestamp": null,
+            "labels": {
+              "controller-uid": "048ef8de-ddf0-4715-bbe4-6b4780c6a118",
+              "job-name": "cj1-1593360660",
+              "srctype": "cronjob"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "c1",
+                "image": "192.168.226.3:10000/hh:v0.1",
+                "command": [
+                  "ash",
+                  "-c",
+                  "sleep 8;echo helloworld"
+                ],
+                "resources": {
+                  
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent",
+                "stdin": true,
+                "tty": true
+              }
+            ],
+            "restartPolicy": "OnFailure",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {
+              
+            },
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "type": "Complete",
+            "status": "True",
+            "lastProbeTime": "2020-06-28T16:11:15Z",
+            "lastTransitionTime": "2020-06-28T16:11:15Z"
+          }
+        ],
+        "startTime": "2020-06-28T16:11:05Z",
+        "completionTime": "2020-06-28T16:11:15Z",
+        "succeeded": 1
+      }
+    },
+    {
+      "metadata": {
+        "name": "cj1-1593360720",
+        "namespace": "default",
+        "selfLink": "/apis/batch/v1/namespaces/default/jobs/cj1-1593360720",
+        "uid": "db94e6de-2662-45ff-b5ba-b9693a1cee32",
+        "resourceVersion": "449146",
+        "creationTimestamp": "2020-06-28T16:12:05Z",
+        "labels": {
+          "controller-uid": "db94e6de-2662-45ff-b5ba-b9693a1cee32",
+          "job-name": "cj1-1593360720",
+          "srctype": "cronjob"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1beta1",
+            "kind": "CronJob",
+            "name": "cj1",
+            "uid": "569437dd-a94f-44a6-956b-a02a788391ef",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2020-06-28T16:12:15Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {"f:metadata":{"f:labels":{".":{},"f:srctype":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"569437dd-a94f-44a6-956b-a02a788391ef\"}":{".":{},"f:apiVersion":{},"f:blockOwnerDeletion":{},"f:controller":{},"f:kind":{},"f:name":{},"f:uid":{}}}},"f:spec":{"f:backoffLimit":{},"f:completions":{},"f:parallelism":{},"f:template":{"f:metadata":{"f:labels":{".":{},"f:srctype":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"c1\"}":{".":{},"f:command":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:stdin":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{},"f:tty":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}},"f:status":{"f:completionTime":{},"f:conditions":{".":{},"k:{\"type\":\"Complete\"}":{".":{},"f:lastProbeTime":{},"f:lastTransitionTime":{},"f:status":{},"f:type":{}}},"f:startTime":{},"f:succeeded":{}}}
+          }
+        ]
+      },
+      "spec": {
+        "parallelism": 1,
+        "completions": 1,
+        "backoffLimit": 6,
+        "selector": {
+          "matchLabels": {
+            "controller-uid": "db94e6de-2662-45ff-b5ba-b9693a1cee32"
+          }
+        },
+        "template": {
+          "metadata": {
+            "creationTimestamp": null,
+            "labels": {
+              "controller-uid": "db94e6de-2662-45ff-b5ba-b9693a1cee32",
+              "job-name": "cj1-1593360720",
+              "srctype": "cronjob"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "c1",
+                "image": "192.168.226.3:10000/hh:v0.1",
+                "command": [
+                  "ash",
+                  "-c",
+                  "sleep 8;echo helloworld"
+                ],
+                "resources": {
+                  
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent",
+                "stdin": true,
+                "tty": true
+              }
+            ],
+            "restartPolicy": "OnFailure",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {
+              
+            },
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "type": "Complete",
+            "status": "True",
+            "lastProbeTime": "2020-06-28T16:12:15Z",
+            "lastTransitionTime": "2020-06-28T16:12:15Z"
+          }
+        ],
+        "startTime": "2020-06-28T16:12:05Z",
+        "completionTime": "2020-06-28T16:12:15Z",
+        "succeeded": 1
+      }
+    },
+    {
+      "metadata": {
+        "name": "cj1-1593360780",
+        "namespace": "default",
+        "selfLink": "/apis/batch/v1/namespaces/default/jobs/cj1-1593360780",
+        "uid": "d0f46b2f-93b7-413c-b0f7-e79cd9b89b44",
+        "resourceVersion": "449279",
+        "creationTimestamp": "2020-06-28T16:13:05Z",
+        "labels": {
+          "controller-uid": "d0f46b2f-93b7-413c-b0f7-e79cd9b89b44",
+          "job-name": "cj1-1593360780",
+          "srctype": "cronjob"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1beta1",
+            "kind": "CronJob",
+            "name": "cj1",
+            "uid": "569437dd-a94f-44a6-956b-a02a788391ef",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2020-06-28T16:13:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {"f:metadata":{"f:labels":{".":{},"f:srctype":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"569437dd-a94f-44a6-956b-a02a788391ef\"}":{".":{},"f:apiVersion":{},"f:blockOwnerDeletion":{},"f:controller":{},"f:kind":{},"f:name":{},"f:uid":{}}}},"f:spec":{"f:backoffLimit":{},"f:completions":{},"f:parallelism":{},"f:template":{"f:metadata":{"f:labels":{".":{},"f:srctype":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"c1\"}":{".":{},"f:command":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:stdin":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{},"f:tty":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}},"f:status":{"f:active":{},"f:startTime":{}}}
+          }
+        ]
+      },
+      "spec": {
+        "parallelism": 1,
+        "completions": 1,
+        "backoffLimit": 6,
+        "selector": {
+          "matchLabels": {
+            "controller-uid": "d0f46b2f-93b7-413c-b0f7-e79cd9b89b44"
+          }
+        },
+        "template": {
+          "metadata": {
+            "creationTimestamp": null,
+            "labels": {
+              "controller-uid": "d0f46b2f-93b7-413c-b0f7-e79cd9b89b44",
+              "job-name": "cj1-1593360780",
+              "srctype": "cronjob"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "c1",
+                "image": "192.168.226.3:10000/hh:v0.1",
+                "command": [
+                  "ash",
+                  "-c",
+                  "sleep 8;echo helloworld"
+                ],
+                "resources": {
+                  
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "imagePullPolicy": "IfNotPresent",
+                "stdin": true,
+                "tty": true
+              }
+            ],
+            "restartPolicy": "OnFailure",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {
+              
+            },
+            "schedulerName": "default-scheduler"
+          }
+        }
+      },
+      "status": {
+        "startTime": "2020-06-28T16:13:05Z",
+        "active": 1
+      }
+    }
+  ]
+}

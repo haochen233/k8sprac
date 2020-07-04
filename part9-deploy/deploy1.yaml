@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy1
+spec:
+  replicas: 3
+  #历史中最多存储多少个版本号
+  revisionHistoryLimit: 10
+  #创建的pod成功运行10才视为可用
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      #不可用的pod的数量（自动转化为百分比），也可以指定百分比。
+      #最多有占期望副本数百分比的副本不可用（不可用副本百分比不超过这个数）
+      maxUnavailable: 0
+  selector:
+    matchExpressions:
+    - key: srctype
+      values: ["deployment"]
+      operator: In
+  template:
+    metadata:
+      labels: 
+        srctype: deployment
+    spec: 
+      containers:
+      - name: c1
+        image: 192.168.226.3:10000/hh:v0.1
+        stdin: true
+        tty: true
