@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: zch
+spec:
+  podSelector:
+    matchExpressions:
+    - key: func
+      values: ["serv"]
+      operator: In
+  ingress:
+  - from:
+    - podSelector:
+        matchExpressions:
+        - key: func
+          values: ["clnt"]
+          operator: In
+    ports:
+    - port: 9190

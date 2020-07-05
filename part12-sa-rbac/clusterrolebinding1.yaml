@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: clusterrolebinding1
+subjects:
+- kind: ServiceAccount
+  name: zch
+  namespace: default
+roleRef:
+  name: clusterrole1
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
